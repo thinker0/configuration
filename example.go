@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"github.com/thinker0/configuration/pkg"
 )
 
 var configText = `
@@ -59,7 +58,7 @@ configList = [
 `
 
 func main() {
-	conf := pkg.ParseString(configText)
+	conf := ParseString(configText)
 
 	fmt.Println("config.one-second:", conf.GetTimeDuration("config.one-second"))
 	fmt.Println("config.one-day:", conf.GetTimeDuration("config.one-day"))

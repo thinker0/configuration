@@ -1,8 +1,8 @@
-package pkg
+package main
 
 import (
 	"encoding/json"
-	"github.com/thinker0/configuration/pkg/hocon"
+	"github.com/thinker0/configuration/hocon"
 	"io/ioutil"
 )
 

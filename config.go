@@ -1,7 +1,7 @@
-package pkg
+package main
 
 import (
-	"github.com/thinker0/configuration/pkg/hocon"
+	"github.com/thinker0/configuration/hocon"
 	"math/big"
 	"strings"
 	"time"
