@@ -1,11 +1,10 @@
-package configuration
+package pkg
 
 import (
+	"github.com/thinker0/configuration/pkg/hocon"
 	"math/big"
 	"strings"
 	"time"
-
-	"github.com/go-akka/configuration/hocon"
 )
 
 type Config struct {
@@ -258,6 +257,23 @@ func (p *Config) GetConfig(path string) *Config {
 		return nil
 	}
 	return NewConfigFromRoot(hocon.NewHoconRoot(value))
+}
+
+func (p *Config) GetConfigList(path string) []*Config {
+	if p == nil {
+		return nil
+	}
+
+	var configs []*Config
+	value := p.GetNode(path)
+	if !value.IsArray() {
+		return configs
+	}
+	arrs := value.GetArray()
+	for _, v := range arrs {
+		configs = append(configs, NewConfigFromRoot(hocon.NewHoconRoot(v)))
+	}
+	return configs
 }
 
 func (p *Config) GetValue(path string) *hocon.HoconValue {

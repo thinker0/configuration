@@ -1,6 +1,6 @@
 HOCON (Human-Optimized Config Object Notation)
 =====
-[![GoDoc](https://godoc.org/github.com/go-akka/configuration?status.svg)](https://godoc.org/github.com/go-akka/configuration)
+[![GoDoc](https://godoc.org/github.com/thinker0/configuration?status.svg)](https://godoc.org/github.com/thinker0/configuration)
 [HOCON Docs](https://github.com/typesafehub/config/blob/master/HOCON.md).
 
 > Currently, some features are not implemented, the API might be a little changed in the future.
@@ -13,7 +13,7 @@ package main
 
 import (
   "fmt"
-  "github.com/go-akka/configuration"
+  "github.com/thinker0/configuration"
 )
 
 var configText = `
@@ -77,6 +77,7 @@ func main() {
   fmt.Println("default:", conf.GetString("none", "default-value"))
   fmt.Println("plus-equal:", conf.GetString("plus-equal"))
   fmt.Println("plus-equal-array:", conf.GetStringList("plus-equal-array"))
+  fmt.Println("configList:", conf.GetConfigList("configList"))
 }
 
 ```

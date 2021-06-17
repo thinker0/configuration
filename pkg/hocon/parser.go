@@ -1,6 +1,7 @@
 package hocon
 
 import (
+	"fmt"
 	"os"
 	"strings"
 )
@@ -32,6 +33,7 @@ func (p *Parser) parseText(text string, callback IncludeCallback) *HoconRoot {
 
 	for _, sub := range p.substitutions {
 		res := getNode(cRoot, sub.Path)
+		fmt.Printf("Path %s, %v", sub.Path, res)
 		if res == nil {
 			envVal, exist := os.LookupEnv(sub.OrignialPath)
 			if !exist {
@@ -217,8 +219,9 @@ func getNode(root *HoconValue, path string) *HoconValue {
 	if currentNode == nil {
 		panic("Current node should not be null")
 	}
-
+	fmt.Printf("getNode: %s\n", elements)
 	for _, key := range elements {
+		fmt.Printf("getNode: %s:%s\n", elements, key)
 		currentNode = currentNode.GetChildObject(key)
 		if currentNode == nil {
 			return nil

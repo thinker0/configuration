@@ -1,10 +1,9 @@
-package configuration
+package pkg
 
 import (
 	"encoding/json"
+	"github.com/thinker0/configuration/pkg/hocon"
 	"io/ioutil"
-
-	"github.com/go-akka/configuration/hocon"
 )
 
 func ParseString(text string, includeCallback ...hocon.IncludeCallback) *Config {
