@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/thinker0/configuration/hocon"
+	"github.com/go-akka/configuration/hocon"
 	"math/big"
 	"strings"
 	"time"

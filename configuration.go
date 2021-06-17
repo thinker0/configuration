@@ -2,7 +2,7 @@ package main
 
 import (
 	"encoding/json"
-	"github.com/thinker0/configuration/hocon"
+	"github.com/go-akka/configuration/hocon"
 	"io/ioutil"
 )
 
